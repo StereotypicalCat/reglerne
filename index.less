@@ -1,0 +1,68 @@
+html, body {
+  height:100%;
+}
+body {
+  margin:50px;
+  font-size:100%;
+  line-height:1.5;
+  font-family: Roboto;
+  background:@main-bg-colour;
+  background: radial-gradient(circle, lighten(@main-bg-colour,1%), darken(@main-bg-colour,20%));;
+}
+
+@main-bg-colour:rgb(25,159,158);
+@other-colour: desaturate(spin(@main-bg-colour, 10), 15%);
+@main-font-colour:#fff;
+
+*, *:before, *:after {
+  box-sizing:border-box;
+}
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+.cf:after {
+  clear: both;
+}
+.cf {
+  *zoom: 1;
+}
+
+.wrapper {
+  width:600px;
+  margin:50px auto;
+  background:#fff;
+  padding:2em;
+}
+
+ol {
+  counter-reset: my-counter;
+  list-style-type: none;
+}
+
+ol ol {
+  margin-left:0.9em;
+}
+
+ol li {
+  counter-increment: my-counter;
+  line-height: 1.6;
+
+  &:before {
+    content: counters(my-counter,".") ".";
+    font-weight:700;
+    text-transform:uppercase;
+    padding-right:3px;
+  }
+
+}
+h1 {
+  font-family:"Fjalla One", sans-serif;
+  font-size:2em;
+  text-transform:uppercase;
+  font-weight:400;
+  color:@main-bg-colour;
+  border-bottom:1px solid @main-bg-colour;
+  margin-bottom:1em;
+}
